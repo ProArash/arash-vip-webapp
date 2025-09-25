@@ -3,7 +3,6 @@ import ProjectCard, { ProjectCardProps } from './ProjectCard';
 import otolmeImg from '@/assets/otolme.png';
 import kartiamImg from '@/assets/kartiam.png';
 import radbarImg from '@/assets/radbar.png';
-import arashImg from '@/assets/arashvip.png';
 import { SquareMenu } from 'lucide-react';
 
 const ProjectsContainer = () => {
@@ -12,11 +11,6 @@ const ProjectsContainer = () => {
 			title: 'اتول می',
 			url: 'https://otolme.ir',
 			image: otolmeImg,
-		},
-		{
-			title: 'آرش وی آی پی',
-			url: 'https://arash.vip',
-			image: arashImg,
 		},
 		{
 			title: 'کارتیام',

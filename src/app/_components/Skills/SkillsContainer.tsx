@@ -11,8 +11,7 @@ import {
 	SiTypescript,
 } from 'react-icons/si';
 import SectionContainer from '../SectionContainer';
-import { SkillCardProps } from './SkillCard';
-import SkillCardProgress from './SkillCardProgress';
+import SkillCard, { SkillCardProps } from './SkillCard';
 import { Code } from 'lucide-react';
 
 const SkillsContainer = () => {
@@ -26,6 +25,11 @@ const SkillsContainer = () => {
 			icon: <SiNestjs className="text-red-500" />,
 			title: 'Nest.js',
 			progress: 50,
+		},
+		{
+			icon: <SiNodedotjs className="text-green-500" />,
+			title: 'Node.js',
+			progress: 65,
 		},
 		{
 			icon: <SiExpress />,
@@ -52,11 +56,7 @@ const SkillsContainer = () => {
 			title: 'Redux toolkit',
 			progress: 50,
 		},
-		{
-			icon: <SiNodedotjs className="text-green-500" />,
-			title: 'Node.js',
-			progress: 65,
-		},
+
 		{
 			icon: <SiDocker className="text-blue-500" />,
 			title: 'Docker',
@@ -70,9 +70,9 @@ const SkillsContainer = () => {
 	];
 	return (
 		<SectionContainer id="skills" title="مهارت ها" icon={<Code />}>
-			<div className="grid md:grid-cols-2 grid-cols-1 w-full gap-5">
+			<div className="flex flex-wrap w-full gap-5">
 				{skillArray.map((v, i) => (
-					<SkillCardProgress key={i} props={v} />
+					<SkillCard key={i} props={v} />
 				))}
 			</div>
 		</SectionContainer>

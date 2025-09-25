@@ -11,7 +11,7 @@ export type ProjectCardProps = {
 
 const ProjectCard = ({ props }: { props: ProjectCardProps }) => {
 	return (
-		<div className="flex flex-col gap-3">
+		<div className="flex flex-col gap-3 bg-card rounded-[8px] p-5">
 			<Image
 				src={props.image}
 				alt={props.title}
@@ -20,7 +20,7 @@ const ProjectCard = ({ props }: { props: ProjectCardProps }) => {
 				className="object-cover w-[250px] h-[250px] rounded-xl"
 			/>
 			<Link href={props.url} target="_blank">
-				<Button className="w-full" variant={'outline'}>
+				<Button className="w-full" variant={'default'}>
 					<ArrowUpRight className='size-4'/>
 					{props.title}
 				</Button>
