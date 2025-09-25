@@ -7,12 +7,13 @@ import {
 	SiNodedotjs,
 	SiReact,
 	SiReactquery,
+	SiRedux,
 	SiTypescript,
 } from 'react-icons/si';
 import SectionContainer from '../SectionContainer';
-import SkillCard, { SkillCardProps } from './SkillCard';
+import { SkillCardProps } from './SkillCard';
 import SkillCardProgress from './SkillCardProgress';
-import { Separator } from '../../../components/ui/separator';
+import { Code } from 'lucide-react';
 
 const SkillsContainer = () => {
 	const skillArray: SkillCardProps[] = [
@@ -22,7 +23,7 @@ const SkillsContainer = () => {
 			progress: 75,
 		},
 		{
-			icon: <SiNestjs className='text-red-500' />,
+			icon: <SiNestjs className="text-red-500" />,
 			title: 'Nest.js',
 			progress: 50,
 		},
@@ -32,27 +33,32 @@ const SkillsContainer = () => {
 			progress: 60,
 		},
 		{
-			icon: <SiTypescript  className='text-blue-500' />,
+			icon: <SiTypescript className="text-blue-500" />,
 			title: 'Typescript',
 			progress: 60,
 		},
 		{
-			icon: <SiReact  className='text-sky-500' />,
+			icon: <SiReact className="text-sky-500" />,
 			title: 'React.js',
 			progress: 65,
 		},
 		{
-			icon: <SiReactquery  className='text-purple-700' />,
+			icon: <SiReactquery className="text-orange-500" />,
 			title: 'React Query',
 			progress: 60,
 		},
 		{
-			icon: <SiNodedotjs  className='text-green-500' />,
+			icon: <SiRedux className="text-purple-500" />,
+			title: 'Redux toolkit',
+			progress: 50,
+		},
+		{
+			icon: <SiNodedotjs className="text-green-500" />,
 			title: 'Node.js',
 			progress: 65,
 		},
 		{
-			icon: <SiDocker  className='text-blue-500' />,
+			icon: <SiDocker className="text-blue-500" />,
 			title: 'Docker',
 			progress: 50,
 		},
@@ -63,12 +69,7 @@ const SkillsContainer = () => {
 		},
 	];
 	return (
-		<SectionContainer id="skills" title="مهارت ها">
-			{/* <div className="flex flex-wrap gap-5">
-				{skillArray.map((v, i) => (
-					<SkillCard key={i} props={v} />
-				))}
-			</div> */}
+		<SectionContainer id="skills" title="مهارت ها" icon={<Code />}>
 			<div className="grid md:grid-cols-2 grid-cols-1 w-full gap-5">
 				{skillArray.map((v, i) => (
 					<SkillCardProgress key={i} props={v} />

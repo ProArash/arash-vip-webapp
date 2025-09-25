@@ -4,4 +4,5 @@ export const AppRoutes = {
 	about: '/#about',
 	inquiry: '/#inquiry',
 	skills: '/#skills',
+	contact: '/#contact',
 };

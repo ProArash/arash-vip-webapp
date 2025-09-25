@@ -5,8 +5,8 @@ import { SkillCardProps } from './SkillCard';
 const SkillCardProgress = ({ props }: { props: SkillCardProps }) => {
 	return (
 		<div className="flex gap-3 items-center justify-between">
-			<div className="flex gap-2 items-center md:w-1/2 w-full">
-				<Progress value={props.progress} className="w-full" />
+			<div className="flex gap-2 items-center w-1/2">
+				<Progress value={props.progress} />
 			</div>
 			<div className="flex items-center gap-2">
 				<Label>{props.title}</Label>
