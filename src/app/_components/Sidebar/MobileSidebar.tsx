@@ -25,8 +25,8 @@ const MobileSidebar = () => {
 				open={drawerSelector.open}
 				onOpenChange={(v) => dispatch(openDrawer(v))}>
 				<SheetTrigger asChild>
-					<Button size={'icon'} variant={'outline'} asChild>
-						<Menu />
+					<Button size={'icon'} variant={'outline'}>
+						<Menu className="size-4" />
 					</Button>
 				</SheetTrigger>
 				<SheetContent>
@@ -35,9 +35,9 @@ const MobileSidebar = () => {
 						<SheetDescription>{''}</SheetDescription>
 					</SheetHeader>
 					<div className="flex w-full justify-start p-2">
-						<SheetClose>
-							<Button size={'icon'} variant={'outline'} asChild>
-								<X />
+						<SheetClose asChild>
+							<Button size={'icon'} variant={'outline'}>
+								<X className="size-4" />
 							</Button>
 						</SheetClose>
 					</div>

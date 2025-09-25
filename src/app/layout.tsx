@@ -4,6 +4,7 @@ import './globals.css';
 import AppProvider from '../components/AppProvider';
 import MainSidebar from './_components/Sidebar/MainSidebar';
 import MobileSidebar from './_components/Sidebar/MobileSidebar';
+import Script from 'next/script';
 
 const vazirFont = localFont({
 	src: '../assets/vazir-fd.woff2',
@@ -103,6 +104,7 @@ export default function RootLayout({
 	return (
 		<html lang="fa" dir="rtl">
 			<body className={`${vazirFont.className} antialiased`}>
+				<div className="cf-turnstile" data-sitekey="0x4AAAAAAB3apweFI31PJxcr"></div>
 				<AppProvider>
 					<main className="flex md:flex-row flex-col justify-between md:gap-3 h-screen w-full md:p-5">
 						<div className="md:flex hidden md:w-1/4 w-full">
@@ -114,6 +116,10 @@ export default function RootLayout({
 						</div>
 					</main>
 				</AppProvider>
+				<Script
+					src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+					strategy="afterInteractive"
+				/>
 			</body>
 		</html>
 	);
