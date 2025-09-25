@@ -1,23 +1,23 @@
-import { Code, Handshake, Home, SquareMenu } from 'lucide-react';
+import { Code, Handshake, SquareMenu } from 'lucide-react';
 import SidebarMenu, { SidebarMenuProps } from './SidebarMenu';
+import { AppRoutes } from '../../../lib/app.routes';
 
 const MainSidebarItems = () => {
 	const menuArray: SidebarMenuProps[] = [
 		{
-			title: 'خانه',
-			icon: <Home />,
-		},
-		{
 			title: 'مهارت ها',
 			icon: <Code />,
+			url: AppRoutes.skills,
 		},
 		{
 			title: 'درخواست پروژه',
 			icon: <Handshake />,
+			url: AppRoutes.inquiry,
 		},
 		{
 			title: 'نمونه کارها',
 			icon: <SquareMenu />,
+			url: AppRoutes.projects,
 		},
 	];
 	return (

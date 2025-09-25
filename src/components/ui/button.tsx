@@ -64,11 +64,13 @@ function Button({
 			{loading ? (
 				<div className="flex items-center gap-2">
 					<Loader className="animate-spin" />
-					{icon}
 					{children}
 				</div>
 			) : (
-				children
+				<>
+					{icon}
+					{children}
+				</>
 			)}
 		</Comp>
 	);
