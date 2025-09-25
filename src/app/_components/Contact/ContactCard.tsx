@@ -9,13 +9,13 @@ export type ContactCardProps = {
 };
 const ContactCard = ({ props }: { props: ContactCardProps }) => {
 	return (
-		<Button variant={'secondary'} asChild>
+		<Button variant={'secondary'} asChild className='justify-start'>
 			<Link
 				href={props.url}
-				className="flex items-center gap-2"
+				className="flex items-center justify-between gap-2"
 				target="_blank">
-				<span>{props.icon}</span>
-				<span>{props.title}</span>
+				{props.icon}
+				{props.title}
 			</Link>
 		</Button>
 	);

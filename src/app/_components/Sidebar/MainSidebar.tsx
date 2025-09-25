@@ -11,7 +11,6 @@ import LanguageSelectContainer from './LanguageSelectContainer';
 import ThemeToggler from '../../../components/ThemeToggler';
 
 const MainSidebar = () => {
-	
 	return (
 		<div className="flex flex-col gap-3 h-full overflow-y-auto w-full md:border border-secondary md:rounded-2xl md:p-5 p-3">
 			<div className="flex items-center gap-3 justify-between w-full">
@@ -22,7 +21,10 @@ const MainSidebar = () => {
 					</Avatar>
 				</div>
 				<div>
-					<Button icon={<Download />}>{'دانلود رزومه'}</Button>
+					<Button>
+						<Download className='size-4'/>
+						{'دانلود رزومه'}
+					</Button>
 				</div>
 			</div>
 			<Separator orientation="horizontal" />

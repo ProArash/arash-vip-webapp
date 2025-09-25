@@ -20,10 +20,8 @@ const ProjectCard = ({ props }: { props: ProjectCardProps }) => {
 				className="object-cover w-[250px] h-[250px] rounded-xl"
 			/>
 			<Link href={props.url} target="_blank">
-				<Button
-					icon={<ArrowUpRight />}
-					className="w-full"
-					variant={'outline'}>
+				<Button className="w-full" variant={'outline'}>
+					<ArrowUpRight className='size-4'/>
 					{props.title}
 				</Button>
 			</Link>
