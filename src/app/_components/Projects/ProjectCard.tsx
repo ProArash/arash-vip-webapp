@@ -11,7 +11,7 @@ export type ProjectCardProps = {
 
 const ProjectCard = ({ props }: { props: ProjectCardProps }) => {
 	return (
-		<div className="flex flex-col gap-3 bg-card rounded-[8px] p-5">
+		<div className="flex flex-col gap-3 shadow dark:shadow-accent rounded-[8px] p-5">
 			<Image
 				src={props.image}
 				alt={props.title}

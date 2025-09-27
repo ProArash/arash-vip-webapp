@@ -59,14 +59,7 @@ function Button({
 			disabled={loading}
 			className={cn(buttonVariants({ variant, size, className }))}
 			{...props}>
-			{loading ? (
-				<div className="flex items-center gap-2">
-					<Loader className="animate-spin" />
-					{children}
-				</div>
-			) : (
-				children
-			)}
+			{loading ? <Loader className="animate-spin size-4" /> : children}
 		</Comp>
 	);
 }

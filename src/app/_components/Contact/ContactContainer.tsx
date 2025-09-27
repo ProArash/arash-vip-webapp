@@ -1,9 +1,39 @@
+'use client';
 import { BsMailbox, BsPhone, BsTelegram, BsWhatsapp } from 'react-icons/bs';
 import SectionContainer from '../SectionContainer';
 import ContactCard, { ContactCardProps } from './ContactCard';
-import { PhoneCall } from 'lucide-react';
+import { Check, PhoneCall } from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
+import z from 'zod';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 const ContactContainer = () => {
+	const formSchema = z.object({
+		name: z.string().min(3, 'حداقل 3 کاراکتر وارد کنید'),
+		mobile: z.string().min(11, 'موبایل نامعتبر').max(13, 'موبایل نامعتبر'),
+		description: z.string().min(5, 'حداقل 5 کاراکتر وارد کنید'),
+	});
+	type ContactRequestDto = z.infer<typeof formSchema>;
+	const {
+		handleSubmit,
+		register,
+		formState: { errors, isValid, isSubmitting },
+	} = useForm<ContactRequestDto>({
+		resolver: zodResolver(formSchema),
+		mode: 'all',
+	});
+
+	const handleContact = async (data: ContactRequestDto) => {
+		await fetch('/api/contact', {
+			method: 'POST',
+			body: JSON.stringify(data),
+		});
+	};
+
 	const contactArray: ContactCardProps[] = [
 		{
 			title: 'ایمیل',
@@ -32,10 +62,43 @@ const ContactContainer = () => {
 			id="contact"
 			lastItem
 			icon={<PhoneCall className="size-4" />}>
-			<div className="flex flex-col w-fit gap-3">
-				{contactArray.map((v, i) => (
-					<ContactCard key={i} props={v} />
-				))}
+			<div className="md:w-1/3 w-full flex flex-col gap-5">
+				<form
+					className="flex flex-col gap-3 rounded-2xl"
+					onSubmit={handleSubmit(handleContact)}>
+					<Label>{'نام کامل'}</Label>
+					<Input
+						placeholder="نام کامل خود را وارد کنید"
+						type="text"
+						{...register('name')}
+						error={errors.name?.message}
+					/>
+					<Label>{'موبایل'}</Label>
+					<Input
+						placeholder="موبایل"
+						type="tel"
+						{...register('mobile')}
+						error={errors.mobile?.message}
+					/>
+					<Label>{'توضیحات'}</Label>
+					<Textarea
+						placeholder="درخواست پروژه فروشگاهی، شرکتی، دانشجویی، همکاری و ...."
+						{...register('description')}
+						className={`min-h-[150px] max-h-[400px]`}
+						error={errors.description?.message}
+					/>
+					<Button
+						disabled={!isValid || isSubmitting}
+						loading={isSubmitting}>
+						<Check className="size-4" />
+						{'ارسال'}
+					</Button>
+				</form>
+				<div className="flex flex-wrap gap-3">
+					{contactArray.map((v, i) => (
+						<ContactCard key={i} props={v} />
+					))}
+				</div>
 			</div>
 		</SectionContainer>
 	);
