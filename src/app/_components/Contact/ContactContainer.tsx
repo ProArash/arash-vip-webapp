@@ -2,7 +2,7 @@
 import { BsMailbox, BsPhone, BsTelegram, BsWhatsapp } from 'react-icons/bs';
 import SectionContainer from '../SectionContainer';
 import ContactCard, { ContactCardProps } from './ContactCard';
-import { Check, PhoneCall } from 'lucide-react';
+import { Check, CheckCircle, PhoneCall } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
@@ -99,7 +99,7 @@ const ContactContainer = () => {
 					</Button>
 					{isSubmitSuccessful && (
 						<Alert variant={'success'}>
-							<Check />
+							<CheckCircle />
 							<AlertTitle>{'درخواست ثبت شد'}</AlertTitle>
 						</Alert>
 					)}
