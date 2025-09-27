@@ -10,6 +10,7 @@ import { Label } from '@/components/ui/label';
 import z from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Alert, AlertTitle } from '../../../components/ui/alert';
 
 const ContactContainer = () => {
 	const formSchema = z.object({
@@ -21,17 +22,20 @@ const ContactContainer = () => {
 	const {
 		handleSubmit,
 		register,
-		formState: { errors, isValid, isSubmitting },
+		reset,
+		formState: { errors, isValid, isSubmitting, isSubmitSuccessful },
 	} = useForm<ContactRequestDto>({
+		defaultValues: undefined,
 		resolver: zodResolver(formSchema),
 		mode: 'all',
 	});
 
 	const handleContact = async (data: ContactRequestDto) => {
-		await fetch('/api/contact', {
+		const req = await fetch('/api/contact', {
 			method: 'POST',
 			body: JSON.stringify(data),
 		});
+		if (req.status == 200) reset();
 	};
 
 	const contactArray: ContactCardProps[] = [
@@ -93,6 +97,12 @@ const ContactContainer = () => {
 						<Check className="size-4" />
 						{'ارسال'}
 					</Button>
+					{isSubmitSuccessful && (
+						<Alert variant={'success'}>
+							<Check />
+							<AlertTitle>{'درخواست ثبت شد'}</AlertTitle>
+						</Alert>
+					)}
 				</form>
 				<div className="flex flex-wrap gap-3">
 					{contactArray.map((v, i) => (
