@@ -8,7 +8,7 @@ const ThemeToggler = () => {
 	const { setTheme, resolvedTheme } = useTheme();
 	return (
 		<div className="flex w-full justify-between gap-3">
-			<Label>{'حالت شب'}</Label>
+			<Label>{'Night mode'}</Label>
 			<Switch
 				dir="ltr"
 				checkedIcon={<Moon className="text-gray-900" />}

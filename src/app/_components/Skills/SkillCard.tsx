@@ -10,8 +10,8 @@ export type SkillCardProps = {
 const SkillCard = ({ props }: { props: SkillCardProps }) => {
 	return (
 		<Badge variant={'secondary'}>
-			{props.title}
 			<span className="text-[22px]">{props.icon}</span>
+			{props.title}
 		</Badge>
 	);
 };
