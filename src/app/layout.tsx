@@ -22,7 +22,6 @@ export const metadata: Metadata = {
     "Frontend and Backend",
     "modern web application",
     "Software engineer freelance",
-    "Web developer Iran",
     "SEO friendly web design",
   ],
   authors: [{ name: "Arash Ghanbari", url: "https://arash.vip" }],

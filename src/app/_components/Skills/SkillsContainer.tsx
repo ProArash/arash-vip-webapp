@@ -1,6 +1,7 @@
 import {
   SiDocker,
   SiExpress,
+  SiGo,
   SiLinux,
   SiNestjs,
   SiNextdotjs,
@@ -17,6 +18,11 @@ import { Code } from "lucide-react";
 
 const SkillsContainer = () => {
   const skillArray: SkillCardProps[] = [
+    {
+      icon: <SiGo className="text-blue-500" />,
+      title: "Golang",
+      progress: 30,
+    },
     {
       icon: <SiNextdotjs />,
       title: "Next.js",
